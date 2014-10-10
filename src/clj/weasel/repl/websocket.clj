@@ -88,7 +88,7 @@
   (reset! repl-out *out*)
   (require 'cljs.repl.reflect)
   (cljs.repl/analyze-source (:src this))
-  (cmp/with-core-cljs)
+  (cmp/with-core-cljs {} (fn []))
   (server/start
     (fn [data] (process-message this (read-string data)))
     :ip (:ip this)
